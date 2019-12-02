@@ -1,4 +1,3 @@
-This website is for creating small picture portfolios for your animals.
+This website is for creating small picture portfolios for your pets.
 
-<a href="Beck-Haywood/Animal-Portfolio/proposal.md
-">Proposal</a>
+<a href="https://github.com/Beck-Haywood/Animal-Portfolio/blob/master/proposal.md">Proposal</a>
