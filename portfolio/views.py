@@ -16,26 +16,33 @@ class PortfoliosView(ListView):
         """ Get a list of portfolios """
         return render(request, 'portfolios.html')
 
-'''def model_form_upload(request):
+#def upload(request):
+#    context = {}
+#    if request.method == 'POST':
+#        uploaded_file = request.FILES['document']
+#        fs = FileSystemStorage()
+#        name = fs.save(uploaded_file.name, uploaded_file)
+#        context['url'] = fs.url(name)
+#    return render(request, 'upload.html', context)
+def upload(request):
     if request.method == 'POST':
         form = PortfolioForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('portfolio-list')
     else:
         form = PortfolioForm()
-    return render(request, 'core/model_form_upload.html', {
-        'form': form
-    })
-    '''
-def upload(request):
-    context = {}
-    if request.method == 'POST':
-        uploaded_file = request.FILES['document']
-        fs = FileSystemStorage()
-        name = fs.save(uploaded_file.name, uploaded_file)
-        context['url'] = fs.url(name)
-    return render(request, 'upload.html', context)
+    return render(request, 'upload.html', { 
+        'form': form 
+        })
+def portfolio_list(request):
+    portfolios = Portfolio.objects.all()
+    return render(request, 'portfolio_list.html', {
+        'portfolios' : portfolios
+        })
+
+def portfolio_view(request):
+    return render(request, 'portfolio.html')
 """    
 class PortfolioCreateView(CreateView):
     template = 'new_portfolio.html'

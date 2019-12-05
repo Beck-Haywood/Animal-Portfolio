@@ -21,8 +21,10 @@
                 <td>{{ portfolio.title }}</td>
                 <td>{{ portfolio.author }}</td>
                 <td>{{ portfolio.created }}</td>
-                <td><img src="{{ portfolio.picture }}" alt="cutie"></td>
-                <td>{{ portfolio.picture }}</td>
+                {% if portfolio.picture %}
+                    <td><img src="{{ portfolio.picture.url }}" alt="{{ portfolio.title }}"></td>
+                {% endif %}
+                <td>{{ portfolio.picture }}</td>    
 
 
             </tr>

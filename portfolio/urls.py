@@ -8,6 +8,9 @@ app_name = 'portfolio'
 urlpatterns = [
     path('', PortfoliosView.as_view() , name='portfolio-view-page'),
     path('upload/', views.upload, name='upload'),
+    path('portfolios/', views.portfolio_list, name='portfolio-list'),
+    path('portfolios/portfolio', views.portfolio_view, name='portfolio'),
+
 
 ]
 
