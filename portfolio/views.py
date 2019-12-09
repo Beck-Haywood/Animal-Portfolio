@@ -1,5 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect, redirect
 from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
+
 #from django.views.generic import CreateView
 from django.urls import reverse_lazy
 from django.core.files.storage import FileSystemStorage
@@ -12,9 +14,32 @@ from portfolio.forms import PortfolioForm
 class PortfoliosView(ListView):
     """Renders a bunch of portfolios
     """
+    model = Portfolio
+
     def get(self, request):
         """ Get a list of portfolios """
-        return render(request, 'portfolios.html')
+        portfolios = Portfolio.objects.all()
+        return render(request, 'portfolios.html', {
+        'portfolios' : portfolios
+        })
+
+class PortfolioView(DetailView):
+    """ Renders a specific page based on it's slug."""
+    model = Portfolio
+
+    def get(self, request, slug):
+        """ Returns a specific portfolio page by slug. """
+        #page = self.get_queryset().get(slug__iexact=slug)
+        page = Portfolio.objects.get(slug=slug)
+        return render(request, 'portfolio.html', {
+          'portfolio': page
+        })
+#class PortfolioCreateView(CreateView):
+#    """Renders a bunch of portfolios
+#    """
+#    model = Portfolio
+#    def post(request):
+#        pass
 
 #def upload(request):
 #    context = {}
@@ -35,14 +60,14 @@ def upload(request):
     return render(request, 'upload.html', { 
         'form': form 
         })
-def portfolio_list(request):
-    portfolios = Portfolio.objects.all()
-    return render(request, 'portfolio_list.html', {
-        'portfolios' : portfolios
-        })
+# def portfolio_list(request):
+#     portfolios = Portfolio.objects.all()
+#     return render(request, 'portfolio_list.html', {
+#         'portfolios' : portfolios
+#         })
 
-def portfolio_view(request):
-    return render(request, 'portfolio.html')
+#def portfolio_view(request):
+#    return render(request, 'portfolio.html')
 """    
 class PortfolioCreateView(CreateView):
     template = 'new_portfolio.html'

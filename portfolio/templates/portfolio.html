@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Dog</h1>
+<h1>{{ portfolio.title }}</h1>
+<img src="{{ portfolio.picture.url }}" alt="{{ portfolio.title }}">
+
 {% endblock %}

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+#{% regroup portfolios|dictsort:'author' by request.user as user_portfolios %}
 
 {% block content %}
 
@@ -11,18 +12,17 @@
             <th>Author</th>
             <th>Created</th>
             <th>Portfolio Cover</th>
-            <th>test</th>
-
         </tr>
     </thead>
     <tbody>
-        {% for portfolio in portfolios %}
+        {% for portfolio in portfolios %} <!--user.portfolios-->
             <tr>
-                <td>{{ portfolio.title }}</td>
+                <td><a href="{{ portfolio.slug }}">{{ portfolio.title }}</a></td>
                 <td>{{ portfolio.author }}</td>
                 <td>{{ portfolio.created }}</td>
-                <td><img src="{{ portfolio.picture }}" alt="cutie"></td>
-                <td>{{ portfolio.picture }}</td>
+                {% if portfolio.picture %}
+                    <td><img src="{{ portfolio.picture.url }}" alt="{{ portfolio.title }}"></td>
+                {% endif %}
 
 
             </tr>
