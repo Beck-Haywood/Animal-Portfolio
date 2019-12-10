@@ -54,35 +54,9 @@ def upload(request):
         form = PortfolioForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('portfolio-list')
+            return redirect('/')
     else:
         form = PortfolioForm()
     return render(request, 'upload.html', { 
         'form': form 
         })
-# def portfolio_list(request):
-#     portfolios = Portfolio.objects.all()
-#     return render(request, 'portfolio_list.html', {
-#         'portfolios' : portfolios
-#         })
-
-#def portfolio_view(request):
-#    return render(request, 'portfolio.html')
-"""    
-class PortfolioCreateView(CreateView):
-    template = 'new_portfolio.html'
-    form_class = PortfolioForm
-    success_url = '' 
-
-    def get(self, request):
-        form = PortfolioForm()
-        return render(request, 'new_portfolio.html', {'form': form})
-  
-    def post(self, request):
-        if request.method == 'POST':
-            form = PortfolioForm(request.POST)
-        if form.is_valid():
-            portfolio = form.save()
-            return HttpResponseRedirect(reverse_lazy('wiki-details-page', args = [portfolio.slug]))
-        return render(request, 'new_portfolio.html', {'form': form})
-        """
