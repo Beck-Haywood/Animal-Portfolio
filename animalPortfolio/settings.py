@@ -31,7 +31,7 @@ SECRET_KEY = 'fo$dewl9-k23mdoqbe$asp()dt!zwe_roljotb-dem-#7=&b8%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'animal-portfolio-bh.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', 'animal-portfolio-bh.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -130,7 +130,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
