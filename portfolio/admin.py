@@ -8,3 +8,4 @@ class PortfolioAdmin(admin.ModelAdmin):
 #class ImageAdmin(admin.ModelAdmin):
     
 admin.site.register(Portfolio, PortfolioAdmin)
+    

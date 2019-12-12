@@ -60,9 +60,9 @@ class PortfoliosView(ListView):
     def get(self, request):
         """ Get a list of portfolios """
         portfolios = Portfolio.objects.all()
-        images = Images.objects.filter(portfolio=portfolios)
+        #images = Images.objects.filter(portfolio=portfolios)
         return render(request, 'portfolios.html', {
-        'portfolios' : portfolios, 'images': images
+        'portfolios' : portfolios
         })
 
 class PortfolioView(DetailView):
