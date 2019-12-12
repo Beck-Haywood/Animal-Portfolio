@@ -2,6 +2,10 @@
 
 {% block content %}
 <h1>{{ portfolio.title }}</h1>
-<img src="{{ portfolio.picture.url }}" alt="{{ portfolio.title }}">
+{% for image in images %}
+    <img src="{{ image.image.url }}" alt="{{ portfolio.title }}">
+    <p>Test image image url{{ image.image.url }}</p>
+    <p>Test image {{ image }}</p>
+{% endfor %}
 
 {% endblock %}

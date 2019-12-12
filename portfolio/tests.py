@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.urls import reverse
 
 # Create your tests here.
-class QuestionModelTests(TestCase):
+class PortfolioRouteTests(TestCase):
 
     def test_homepage(self):
         """

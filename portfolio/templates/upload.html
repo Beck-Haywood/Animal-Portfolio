@@ -2,14 +2,24 @@
 
 {% block content %}
 <h2>Upload images!</h2>
-<form method='post' enctype="multipart/form-data">
+<form id="post_form" method="post" action="" enctype="multipart/form-data">
+
     {% csrf_token %}
-    {{ form.as_p }}
-    <!--<input type="file" name="document">-->
-    <button type="submit">Upload Image</button>
+    {% for hidden in postForm.hidden_fields %}
+        {{ hidden }}
+    {% endfor %}
+
+    {% for field in postForm %}
+        {{ field }} <br />
+    {% endfor %}
+
+    {{ formset.management_form }}
+    {% for form in formset %}
+        {{ form }}
+    {% endfor %}
+
+
+    <input type="submit" name="submit" value="Submit" />
 </form>
-    {% if url %}
-        <p>Uploaded File: <a href="{{ url }}">{{ url }}</a></p>
-        <img src="{{ url }}" alt="wat">
-    {% endif %}
+    
 {% endblock %}

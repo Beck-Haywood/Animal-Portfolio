@@ -20,9 +20,10 @@
                 <td><a href="{{ portfolio.slug }}">{{ portfolio.title }}</a></td>
                 <td>{{ portfolio.author }}</td>
                 <td>{{ portfolio.created }}</td>
-                {% if portfolio.picture %}
-                    <td><img src="{{ portfolio.picture.url }}" alt="{{ portfolio.title }}"></td>
-                {% endif %}
+                {% for image in images %}
+                    <td><img src="{{ image.image.url }}" alt="{{ portfolio.title }}"></td>
+                {% endfor %}
+
 
 
             </tr>
