@@ -7,12 +7,11 @@ class AccountsRouteTests(TestCase):
         """
         Tests login        
         """
-        response = self.client.get('/')
+        response = self.client.get('/accounts/login/')
         self.assertEqual(response.status_code, 200)
-
-    def signup(self):
+    def test_signup(self):
         """
         Tests signup        
         """
-        response = self.client.get('/upload')
-        self.assertEqual(response.status_code, 301)
+        response = self.client.get('/accounts/signup/')
+        self.assertEqual(response.status_code, 200)
